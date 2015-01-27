@@ -1,0 +1,10 @@
+---
+applications:
+- name: pdfviewer
+  memory: 64M
+  instances: 1
+  host: pdfviewer
+  domain: sdp.asideas.de
+  buildpack: https://github.com/brotbert/nginx-buildpack.git
+
+
