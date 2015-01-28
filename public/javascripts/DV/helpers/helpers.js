@@ -56,6 +56,8 @@ DV.Schema.helpers = {
         context.open('ViewText');
       });
       viewer.$('.DV-allAnnotations').delegate('.DV-annotationGoto .DV-trigger','click', DV.jQuery.proxy(this.gotoPage, this));
+      //hidayat
+      viewer.$('.DV-allAnnotations').delegate('.DV-annotationTitle','click', DV.jQuery.proxy(this.gotoPage, this));
 
       viewer.$('form.DV-searchDocument').submit(this.events.compile('search'));
       viewer.$('.DV-searchBar').delegate('.DV-closeSearch','click',function(e){
@@ -88,7 +90,8 @@ DV.Schema.helpers = {
       collection.delegate('.DV-deleteAnnotation','click', DV.jQuery.proxy(this.deleteAnnotation, this));
       collection.delegate('.DV-pageNumber', 'click', DV._.bind(this.permalinkPage, this, 'document'));
       collection.delegate('.DV-textCurrentPage', 'click', DV._.bind(this.permalinkPage, this, 'text'));
-      collection.delegate('.DV-annotationTitle', 'click', DV._.bind(this.permalinkAnnotation, this));
+      //hidayat
+      //collection.delegate('.DV-annotationTitle', 'click', DV._.bind(this.permalinkAnnotation, this));
       collection.delegate('.DV-permalink', 'click', DV._.bind(this.permalinkAnnotation, this));
 
       // Thumbnails

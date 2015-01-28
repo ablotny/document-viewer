@@ -74,14 +74,30 @@
                
       });
 
+//hidayat
+      // inputElement.bind('keyup',function(){
+      //   var val = inputElement.attr('value');
+      //   el.text(val);
+      //   if(config.changeCallBack){
+      //     DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,500);
+      //   }
+      // });
+
 
       inputElement.bind('keyup',function(){
         var val = inputElement.attr('value');
-        el.text(val);
-        if(config.changeCallBack){
-          DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,500);
+        if(val==''){
+          if(config.changeCallBack){
+            DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,5000);
+          }
+        }else{
+          el.text(val);
+          if(config.changeCallBack){
+            DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,800);
+          }
         }
       });
+
       
       inputElement.bind('keydown',function(){
         if(DV.jQuery.fn.acceptInput.editTimer){

@@ -101,3 +101,11 @@
   .DV-mini .DV-activeAnnotation .DV-annotationClose {
     background-position: 4px 2px;
   }
+
+@media screen and (max-width: 370px) { 
+  .DV-mini .DV-zoomControls {
+      margin-top: -7px;
+    
+      margin-left: 40px;
+  }
+}
