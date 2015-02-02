@@ -28,7 +28,8 @@ DV._.extend(DV.Schema.helpers, {
     DV.jQuery.ajax({url : searchURI, dataType : 'json', success : handleResponse, error : failResponse});
   },
   acceptInputCallBack: function(){
-    var pageIndex = parseInt(this.elements.currentPage.text(),10) - 1;
+    //var pageIndex = parseInt(this.elements.currentPage.text(),10) - 1;
+    var pageIndex = parseInt(this.viewer.$('.DV-pageNumberContainer input').val()) - 1;
     // sanitize input
 
     pageIndex       = (pageIndex === '') ? 0 : pageIndex;
