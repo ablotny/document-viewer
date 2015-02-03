@@ -74,7 +74,7 @@
                
       });
 
-      //hidayat
+//hidayat
       // inputElement.bind('keyup',function(){
       //   var val = inputElement.attr('value');
       //   el.text(val);
@@ -85,7 +85,7 @@
 
       DV.jQuery(document).keyup(function(e) {
         if (e.keyCode == 27) {
-          DV.jQuery('.DV-docViewer').removeClass('DIV-fullscreen');
+          DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
         }   // esc
       });
 
@@ -97,7 +97,7 @@
             DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,5000);
           }
         }else{
-          el.text(val);
+          //el.text(val);
           if(config.changeCallBack){
             DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,800);
           }

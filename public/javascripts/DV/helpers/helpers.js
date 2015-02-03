@@ -66,13 +66,14 @@ DV.Schema.helpers = {
       viewer.$('.DV-vollBild').delegate('.DV-trigger','click', function(e){
         
         var elem = document.getElementById('document-viewer');
+        DV.jQuery('#document-viewer').addClass('DIV-fullscreen');
         launchIntoFullscreen();
         viewer.$('.DV-docViewer').addClass('DIV-fullscreen');
         function launchIntoFullscreen() {
           if(document.documentElement.requestFullscreen) {
             if(document.fullscreenElement) {  
                 document.cancelFullScreen();
-                viewer.$('.DV-docViewer').removeClass('DIV-fullscreen');
+                DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
             }  
             else {  
                 elem.requestFullscreen();
@@ -80,7 +81,7 @@ DV.Schema.helpers = {
           } else if(document.documentElement.mozRequestFullScreen) {
               if(document.mozFullscreenElement) {  
                   document.mozCancelFullScreen();
-                  viewer.$('.DV-docViewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
               }  
               else {  
                   elem.mozRequestFullScreen();
@@ -88,7 +89,7 @@ DV.Schema.helpers = {
           } else if(document.documentElement.webkitRequestFullscreen) {
               if(document.webkitFullscreenElement) {  
                   document.webkitCancelFullScreen();  
-                  viewer.$('.DV-docViewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
               }  
               else {  
                   elem.webkitRequestFullScreen();  
@@ -96,7 +97,7 @@ DV.Schema.helpers = {
           } else if(document.documentElement.msRequestFullscreen) {
               if(document.msFullscreenElement) {  
                   document.msCancelFullScreen();  
-                  viewer.$('.DV-docViewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
               }  
               else {  
                   elem.msRequestFullscreen();
