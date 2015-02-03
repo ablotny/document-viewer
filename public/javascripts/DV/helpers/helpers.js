@@ -59,27 +59,6 @@ DV.Schema.helpers = {
       //hidayat
       viewer.$('.DV-allAnnotations').delegate('.DV-annotationTitle','click', DV.jQuery.proxy(this.gotoPage, this));
 
-      viewer.$('.DV-pdfDownload').delegate('.DV-trigger','click',function(e){
-        window.location.href = viewer.schema.document.resources.pdf;
-      });
-
-      viewer.$('.DV-vollBild').delegate('.DV-trigger','click', function(e){
-        
-        launchIntoFullscreen();
-
-        function launchIntoFullscreen() {
-          if(document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-          } else if(document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-          } else if(document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
-          } else if(document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
-          }
-        }
-      });
-
       viewer.$('form.DV-searchDocument').submit(this.events.compile('search'));
       viewer.$('.DV-searchBar').delegate('.DV-closeSearch','click',function(e){
         e.preventDefault();
