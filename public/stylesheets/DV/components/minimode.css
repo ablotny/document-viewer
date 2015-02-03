@@ -105,7 +105,12 @@
 @media screen and (max-width: 370px) { 
   .DV-mini .DV-zoomControls {
       margin-top: -7px;
-    
       margin-left: 40px;
   }
+}
+
+@media screen and (max-width: 720px) {
+    .DV-right {
+        display: none;
+    }
 }
