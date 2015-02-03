@@ -329,3 +329,16 @@
   margin-top:-5px;
 }
 
+.DV-right {
+  float: right;
+  padding-right: 10px;
+}
+
+.DV-right span:hover {
+  background: -webkit-linear-gradient(#FDFDFD, #D4D4D4);
+  background: -o-linear-gradient(#FDFDFD, #D4D4D4);
+  background: -moz-linear-gradient(#FDFDFD, #D4D4D4);
+  background: linear-gradient(#FDFDFD, #D4D4D4);
+  color: #000000;
+  font-weight: bold;
+}
