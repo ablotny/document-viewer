@@ -74,7 +74,7 @@
                
       });
 
-//hidayat
+      //hidayat
       // inputElement.bind('keyup',function(){
       //   var val = inputElement.attr('value');
       //   el.text(val);
@@ -82,6 +82,12 @@
       //     DV.jQuery.fn.acceptInput.editTimer = setTimeout(config.changeCallBack,500);
       //   }
       // });
+
+      DV.jQuery(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+          DV.jQuery('.DV-docViewer').removeClass('DIV-fullscreen');
+        }   // esc
+      });
 
 
       inputElement.bind('keyup',function(){
