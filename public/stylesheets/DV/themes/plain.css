@@ -129,3 +129,6 @@
     -webkit-border-top-right-radius: 5px; -moz-border-radius-topright: 5px;
   }
 
+.DIV-fullscreen {
+  height: 600px;
+}

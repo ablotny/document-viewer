@@ -65,17 +65,38 @@ DV.Schema.helpers = {
 
       viewer.$('.DV-vollBild').delegate('.DV-trigger','click', function(e){
         
+        var elem = document.getElementById('document-viewer');
         launchIntoFullscreen();
-
+        viewer.$('.DV-docViewer').addClass('DIV-fullscreen');
         function launchIntoFullscreen() {
           if(document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
+            if(document.fullscreenElement) {  
+                document.cancelFullScreen();
+            }  
+            else {  
+                elem.requestFullscreen();
+            }
           } else if(document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
+              if(document.mozFullscreenElement) {  
+                  document.mozCancelFullScreen();
+              }  
+              else {  
+                  elem.mozRequestFullScreen();
+              }
           } else if(document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
+              if(document.webkitFullscreenElement) {  
+                  document.webkitCancelFullScreen();  
+              }  
+              else {  
+                  elem.webkitRequestFullScreen();  
+              }
           } else if(document.documentElement.msRequestFullscreen) {
-            document.documentElement.msRequestFullscreen();
+              if(document.msFullscreenElement) {  
+                  document.msCancelFullScreen();  
+              }  
+              else {  
+                  elem.msRequestFullscreen();
+              }
           }
         }
       });
