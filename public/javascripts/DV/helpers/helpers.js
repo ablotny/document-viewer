@@ -67,6 +67,9 @@ DV.Schema.helpers = {
         
         var elem = document.getElementById('document-viewer');
         DV.jQuery('#document-viewer').addClass('DIV-fullscreen');
+
+        DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'9px','padding-top':'8px'});
+
         launchIntoFullscreen();
         viewer.$('.DV-docViewer').addClass('DIV-fullscreen');
         function launchIntoFullscreen() {
@@ -74,6 +77,7 @@ DV.Schema.helpers = {
             if(document.fullscreenElement) {  
                 document.cancelFullScreen();
                 DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+                DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
             }  
             else {  
                 elem.requestFullscreen();
@@ -82,6 +86,7 @@ DV.Schema.helpers = {
               if(document.mozFullscreenElement) {  
                   document.mozCancelFullScreen();
                   DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
               }  
               else {  
                   elem.mozRequestFullScreen();
@@ -90,6 +95,7 @@ DV.Schema.helpers = {
               if(document.webkitFullscreenElement) {  
                   document.webkitCancelFullScreen();  
                   DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
               }  
               else {  
                   elem.webkitRequestFullScreen();  
@@ -98,6 +104,8 @@ DV.Schema.helpers = {
               if(document.msFullscreenElement) {  
                   document.msCancelFullScreen();  
                   DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+                  DV.jQuery('.DV-vollBild').find('DV-trigger').css({'padding-bottom':'7px','padding-top':'6px'});
+                  DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
               }  
               else {  
                   elem.msRequestFullscreen();

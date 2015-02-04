@@ -86,9 +86,9 @@
       DV.jQuery(document).keyup(function(e) {
         if (e.keyCode == 27) {
           DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+          DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
         }   // esc
       });
-
 
       inputElement.bind('keyup',function(){
         var val = inputElement.attr('value');
