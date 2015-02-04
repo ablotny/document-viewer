@@ -1,5 +1,12 @@
 /* DocumentCloud overrides to the DocViewer CSS go here: */
 
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome';
+}
+
 .DV-docViewer {
   border: 1px solid #aaa;
   line-height: normal;
@@ -131,4 +138,7 @@
 
 .DIV-fullscreen {
   max-width: 100% !important;
+  height: 100% !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
