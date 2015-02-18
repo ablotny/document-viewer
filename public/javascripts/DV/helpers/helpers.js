@@ -60,7 +60,8 @@ DV.Schema.helpers = {
       viewer.$('.DV-allAnnotations').delegate('.DV-annotationTitle','click', DV.jQuery.proxy(this.gotoPage, this));
 
       viewer.$('.DV-pdfDownload').delegate('.DV-trigger','click',function(e){
-        window.location.href = viewer.schema.document.resources.pdf;
+        window.open(viewer.schema.document.resources.pdf, '_blank');
+        //window.location.href = viewer.schema.document.resources.pdf;
       });
 
       viewer.$('.DV-vollBild').delegate('.DV-trigger','click', function(e){
@@ -98,7 +99,7 @@ DV.Schema.helpers = {
                   DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
               }  
               else {  
-                  elem.webkitRequestFullScreen();  
+                  elem.webkitRequestFullScreen(); 
               }
           } else if(document.documentElement.msRequestFullscreen) {
               if(document.msFullscreenElement) {  
@@ -111,6 +112,31 @@ DV.Schema.helpers = {
                   elem.msRequestFullscreen();
               }
           }
+
+          document.addEventListener("fullscreenchange", function(){
+            if(!document.webkitFullscreenElement){
+              DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+              DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
+            }
+          });
+          document.addEventListener("webkitfullscreenchange", function(){            
+            if(!document.webkitFullscreenElement){
+              DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+              DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
+            }
+          });
+          document.addEventListener("mozfullscreenchange", function(){
+            if(!document.webkitFullscreenElement){
+              DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+              DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
+            }
+          });
+          document.addEventListener("MSFullscreenChange", function(){
+            if(!document.webkitFullscreenElement){
+              DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+              DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
+            }
+          });
         }
       });
 

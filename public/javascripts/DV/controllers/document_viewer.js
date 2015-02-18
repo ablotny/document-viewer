@@ -138,6 +138,22 @@ DV.load = function(documentRep, options) {
       if (DV.afterLoad) DV.afterLoad(viewer);
       if (DV.recordHit) viewer.recordHit(DV.recordHit);
     });
+
+    if(DV.jQuery(window).width()<400){
+      var rect = document.getElementById("mainDocViewer").getBoundingClientRect();
+      document.getElementById("iframeBlocker").style.height = rect.bottom-rect.top+"px";
+      document.getElementById("iframeBlocker").style.width = rect.right-rect.left+"px";
+      document.getElementById("iframeBlocker").style.background = "white";
+      document.getElementById("iframeBlocker").style.opacity = "0.7";
+      document.getElementById("iframeBlocker").style.display = "block";
+      document.getElementById("lesenPDF").style.textAlign = "center";
+      document.getElementById("lesenPDF").style.verticalAlign = "middle";
+      document.getElementById("lesenPDF").style.lineHeight = rect.bottom-rect.top+"px";
+      document.getElementById("lesenPDF").onclick=function(){
+        window.open(viewer.schema.document.resources.pdf, '_blank');
+      };
+    }  
+
   };
 
   // If we've been passed the JSON directly, we can go ahead,
