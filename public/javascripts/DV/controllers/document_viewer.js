@@ -139,6 +139,37 @@ DV.load = function(documentRep, options) {
       if (DV.recordHit) viewer.recordHit(DV.recordHit);
     });
 
+    window.addEventListener("orientationchange", function(){
+      //TODO: code duplication!!!!
+      var rect = document.getElementById("mainDocViewer").getBoundingClientRect();
+      document.getElementById("iframeBlocker").style.height = rect.bottom-rect.top+"px";
+      document.getElementById("iframeBlocker").style.width = rect.right-rect.left+"px";
+      document.getElementById("iframeBlocker").style.background = "white";
+      document.getElementById("iframeBlocker").style.opacity = "0.7";
+      document.getElementById("iframeBlocker").style.display = "block";
+      document.getElementById("lesenPDF").style.textAlign = "center";
+      document.getElementById("lesenPDF").style.verticalAlign = "middle";
+      document.getElementById("lesenPDF").style.lineHeight = rect.bottom-rect.top+"px";
+      document.getElementById("lesenPDF").onclick=function(){
+        window.open(viewer.schema.document.resources.pdf, '_blank');
+      };
+    });
+    window.addEventListener("resize", function(){
+      //TODO: code duplication!!!!
+      var rect = document.getElementById("mainDocViewer").getBoundingClientRect();
+      document.getElementById("iframeBlocker").style.height = rect.bottom-rect.top+"px";
+      document.getElementById("iframeBlocker").style.width = rect.right-rect.left+"px";
+      document.getElementById("iframeBlocker").style.background = "white";
+      document.getElementById("iframeBlocker").style.opacity = "0.7";
+      document.getElementById("iframeBlocker").style.display = "block";
+      document.getElementById("lesenPDF").style.textAlign = "center";
+      document.getElementById("lesenPDF").style.verticalAlign = "middle";
+      document.getElementById("lesenPDF").style.lineHeight = rect.bottom-rect.top+"px";
+      document.getElementById("lesenPDF").onclick=function(){
+        window.open(viewer.schema.document.resources.pdf, '_blank');
+      };
+    });
+
     if(DV.jQuery(window).width()<400){
       var rect = document.getElementById("mainDocViewer").getBoundingClientRect();
       document.getElementById("iframeBlocker").style.height = rect.bottom-rect.top+"px";
