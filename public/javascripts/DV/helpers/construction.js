@@ -86,6 +86,9 @@ DV._.extend(DV.Schema.helpers, {
     var containerEl = DV.jQuery(container);
     if (!containerEl.length) throw "Document Viewer container element not found: " + container;
     containerEl.html(JST.viewer(viewerOptions));
+
+    //throw event on rendering ready 
+    DV.jQuery(window).trigger("documentViewerRendered"); 
   },
 
   // If there is no description, no navigation, and no sections, tighten up
