@@ -87,6 +87,7 @@
         if (e.keyCode == 27) {
           DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
           DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
+          location.reload();
         }   // esc
       });
 

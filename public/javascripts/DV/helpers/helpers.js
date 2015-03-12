@@ -60,7 +60,19 @@ DV.Schema.helpers = {
       viewer.$('.DV-allAnnotations').delegate('.DV-annotationTitle','click', DV.jQuery.proxy(this.gotoPage, this));
 
       viewer.$('.DV-pdfDownload').delegate('.DV-trigger','click',function(e){
-        window.open(viewer.schema.document.resources.pdf, '_blank');
+
+        var test_canvas = document.createElement("canvas")
+        var html5check=(test_canvas.getContext)? true : false;
+
+        if(html5check){
+          var a = document.createElement('a');
+          a.href = viewer.schema.document.resources.pdf;
+          a.download = "Download PDF";
+          return a.click();
+        }else{
+          window.open(viewer.schema.document.resources.pdf, '_blank');
+        }
+
         //window.location.href = viewer.schema.document.resources.pdf;
       });
 
@@ -85,8 +97,6 @@ DV.Schema.helpers = {
             }
         }
 
-        DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'9px','padding-top':'8px'});
-
         launchIntoFullscreen();
         viewer.$('.DV-docViewer').addClass('DIV-fullscreen');
         function launchIntoFullscreen() {
@@ -97,9 +107,11 @@ DV.Schema.helpers = {
                 DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
                 DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
                 toggleMaxHeight();
+                location.reload();
             }  
             else {  
                 elem.requestFullscreen();
+                DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
             }
           } else if(document.documentElement.mozRequestFullScreen) {
               if(document.mozFullscreenElement) {  
@@ -107,9 +119,11 @@ DV.Schema.helpers = {
                   DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
                   DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
                   toggleMaxHeight();
+                  location.reload();
               }  
               else {  
                   elem.mozRequestFullScreen();
+                  DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
               }
           } else if(document.documentElement.webkitRequestFullscreen) {
               if(document.webkitFullscreenElement) {  
@@ -117,9 +131,11 @@ DV.Schema.helpers = {
                   DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
                   DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
                   toggleMaxHeight();
+                  location.reload();
               }  
               else {  
                   elem.webkitRequestFullScreen(); 
+                  DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
               }
           } else if(document.documentElement.msRequestFullscreen) {
               if(document.msFullscreenElement) {  
@@ -128,9 +144,11 @@ DV.Schema.helpers = {
                   DV.jQuery('.DV-vollBild').find('DV-trigger').css({'padding-bottom':'7px','padding-top':'6px'});
                   DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
                   toggleMaxHeight();
+                  location.reload();
               }  
-              else {  
+              else {
                   elem.msRequestFullscreen();
+                  DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
               }
           }
 
@@ -159,6 +177,8 @@ DV.Schema.helpers = {
             }
           });
         }
+
+        DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'13px','padding-top':'8px'});
       });
 
       viewer.$('form.DV-searchDocument').submit(this.events.compile('search'));
