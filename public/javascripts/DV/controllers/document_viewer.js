@@ -183,7 +183,11 @@ DV.load = function (documentRep, options) {
 
   function toggleBlocker(){
     resizeBlocker();
-    if (DV.jQuery(window).width() < 400) {
+
+    var ua = navigator.userAgent;
+    var is_native_android = ((ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('Android ') > -1 && ua.indexOf('AppleWebKit') > -1) && (ua.indexOf('Version') > -1));
+
+    if (window.screen.width < 700 || is_native_android) {
       showBlocker();
     } else {
       hideBlocker();
@@ -193,7 +197,12 @@ DV.load = function (documentRep, options) {
     document.getElementById("lesenPDF").onclick = function () {
       window.open(viewer.schema.document.resources.pdf, '_blank');
     };
-    if (DV.jQuery(window).width() < 400) {
+
+    var ua = navigator.userAgent;
+    var is_native_android = ((ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('Android ') > -1 && ua.indexOf('AppleWebKit') > -1) && (ua.indexOf('Version') > -1));
+
+
+    if (window.screen.width < 700 || is_native_android) {
       resizeBlocker();
       showBlocker();
     }
