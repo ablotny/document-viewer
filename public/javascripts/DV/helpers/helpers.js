@@ -92,7 +92,6 @@ DV.Schema.helpers = {
       });
 
       viewer.$('.DV-vollBild').delegate('.DV-trigger','click', function(e){
-        
         var elem = document.getElementById('document-viewer');
         DV.jQuery('#document-viewer').addClass('DIV-fullscreen');
 
@@ -137,70 +136,38 @@ DV.Schema.helpers = {
             else {  
                 elem.requestFullscreen();
                 DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
-                // DV.jQuery('.DV-pdfDownload').find('span').css({'padding-bottom':'13px','padding-top':'8px'});
             }
           } else if(document.documentElement.mozRequestFullScreen) {
-              if(document.mozFullscreenElement) {
-                  console.log('cancel full screen');
-                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-                  elem.mozCancelFullScreen();
-                  toggleMaxHeight();
+              if(document.mozFullScreenElement) {
+                  elem.mozCancelFullScreen
                   location.reload();
+
+                  // DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
+                  // toggleMaxHeight();
               }  
               else {  
                   elem.mozRequestFullScreen();
                   DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
-                  // DV.jQuery('.DV-pdfDownload').find('span').css({'padding-bottom':'13px','padding-top':'8px'});
               }
           } else if(document.documentElement.webkitRequestFullscreen) {
               if(document.webkitFullscreenElement) {  
                   document.webkitCancelFullScreen();  
-                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-                  toggleMaxHeight();
                   location.reload();
               }  
               else {  
                   elem.webkitRequestFullScreen(); 
                   DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
-                  // DV.jQuery('.DV-pdfDownload').find('span').css({'padding-bottom':'13px','padding-top':'8px'});
               }
           } else if(document.documentElement.msRequestFullscreen) {
               if(document.msFullscreenElement) {  
-                  document.msCancelFullScreen();  
-                  DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-                  toggleMaxHeight();
+                  document.msCancelFullScreen();
                   location.reload();
               }  
               else {
                   elem.msRequestFullscreen();
                   DV.jQuery('.DV-vollBild').find('img').attr('src',"/public/images/DV/notfullscreen.png");
-                  // DV.jQuery('.DV-pdfDownload').find('span').css({'padding-bottom':'13px','padding-top':'8px'});
               }
           }
-          // document.addEventListener("MSFullscreenChange", function(){
-          //   if(!document.webkitFullscreenElement){
-          //     DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-          //     DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
-          //   }
-          // });
-          // document.addEventListener("fullscreenchange", function(){
-          //   if(!document.webkitFullscreenElement){
-          //     DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-          //     DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
-          //   }
-          // });
-          // document.addEventListener("webkitfullscreenchange", function(){            
-          //   if(!document.webkitFullscreenElement){
-          //     DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-          //     DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
-          //   }
-          // });
-          // document.addEventListener("mozfullscreenchange", function(){
-          //   if(!document.webkitFullscreenElement){
-          //     DV.jQuery('#document-viewer').removeClass('DIV-fullscreen');
-          //     DV.jQuery('.DV-pdfDownload').children().css({'padding-bottom':'8px','padding-top':'5px'});
-          //   }
-          // });
         }
       });
 
