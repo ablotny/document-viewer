@@ -43,6 +43,12 @@ DV.Schema.helpers = {
         viewer.$('.DV-pdfDownload').addClass('DV-first');
       }
 
+      setTimeout(function() {
+          if(!DV.jQuery('#mainDocViewer').hasClass('DV-hideSidebar')){
+              DV.jQuery('.DV-pdfDownload').find('span').css({'padding-bottom':'13px','padding-top':'8px'});
+          }
+        }, 500);
+
       // next/previous
       var history         = viewer.history;
       var compiled        = viewer.compiled;
